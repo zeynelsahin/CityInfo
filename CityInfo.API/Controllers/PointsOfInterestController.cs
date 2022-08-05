@@ -1,4 +1,5 @@
 ﻿using CityInfo.API.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CityInfo.API.Controllers;
@@ -19,7 +20,7 @@ public class PointsOfInterestController : Controller
         return Ok(city.PointsInterest);
     }
 
-    [HttpGet("{pointOfInterestId:int}", Name = "GetPointOfInterest")]
+    [HttpGet("{pointOfInterestId}", Name = "GetPointOfInterest")]
     public IActionResult GetPointsOfInterest(int cityId, int pointOfInterestId)
     {
         var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
@@ -61,14 +62,51 @@ public class PointsOfInterestController : Controller
         var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
         if (city == null) return Ok();
         var pointOfInterestFromStore = city.PointsInterest.FirstOrDefault(c => c.Id == pointOfInterestId);
-        if (pointOfInterestId==null)
+        if (pointOfInterestId == null)
         {
             return NotFound();
         }
 
         pointOfInterestFromStore.Name = pointOfInterestForUpdateDto.Name;
         pointOfInterestFromStore.Description = pointOfInterestForUpdateDto.Description;
+        return NoContent();
+    }
 
-        return NoContent(); 
+    [HttpPatch("{pointOfInterestId:int}")]
+    public ActionResult PartiallyUpdatePointOfInterest(int cityId, int pointOfInterestId, JsonPatchDocument<PointOfInterestForUpdateDto> patchDocument)
+    {
+        var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
+        if (city == null)
+        {
+            return NotFound();
+        }
+
+        var pointOfInterestFromStore = city.PointsInterest.FirstOrDefault(c => c.Id == pointOfInterestId);
+        if (pointOfInterestFromStore == null)
+        {
+            return NotFound();
+        }
+
+        var pointOfInterestToPatch = new PointOfInterestForUpdateDto()
+        {
+            Name = pointOfInterestFromStore.Name,
+            Description = pointOfInterestFromStore.Description
+        };
+
+        patchDocument.ApplyTo(pointOfInterestToPatch, ModelState);
+
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        if (!TryValidateModel(pointOfInterestToPatch))
+        {
+            return BadRequest(ModelState);
+        }
+        
+        pointOfInterestFromStore.Name = pointOfInterestToPatch.Name;
+        pointOfInterestFromStore.Description = pointOfInterestToPatch.Description;
+        return NoContent();
     }
 }
