@@ -7,16 +7,11 @@ namespace CityInfo.API.Controllers;
 [Route("api/cities")]
 public class CitiesController : Controller
 {
-    [HttpGet("deneme")]
-    public IActionResult Index()
-    {
-        return Ok();
-    }
-
     [HttpGet]
-    public ActionResult<IEnumerable<CityDto>> GetCities()
+    public ActionResult<List<CityDto>> GetCities()
     {
-        return Ok(CitiesDataStore.Current.Cities);
+        var result = CitiesDataStore.Current.Cities;
+        return Ok(result);
     }
 
     [HttpGet("getById/{id:int}")]

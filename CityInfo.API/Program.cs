@@ -6,7 +6,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // builder.Services.AddMvc(); MVC hizmetleri
 // builder.Services.AddControllersWithViews();// Controllerları viewler ile birlikte kulllanma
-builder.Services.AddControllers(options => { options.ReturnHttpNotAcceptable = true; }).AddXmlDataContractSerializerFormatters();//Desteklenmyen formatlar için default format da verinin gönderilmemesi için
+builder.Services.AddControllers(options =>
+    {
+        options.ReturnHttpNotAcceptable = true;
+    })
+    .AddXmlDataContractSerializerFormatters();//Desteklenmyen formatlar için default format da verinin gönderilmemesi için
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
