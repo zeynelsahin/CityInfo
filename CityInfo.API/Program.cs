@@ -1,9 +1,15 @@
+using CityInfo.API;
 using Microsoft.AspNetCore.StaticFiles;
+using Serilog;
 
+Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.Console().WriteTo.File("losg/citiyinfo.txt", rollingInterval: RollingInterval.Day).CreateLogger();
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Host.UseSerilog();  
+// builder.Logging.ClearProviders();
+// builder.Logging.AddConsole();
 // Add services to the container.
 
+builder.Services.AddSingleton<CitiesDataStore>();
 // builder.Services.AddMvc(); MVC hizmetleri
 // builder.Services.AddControllersWithViews();// Controllerları viewler ile birlikte kulllanma
 builder.Services.AddControllers(options =>
