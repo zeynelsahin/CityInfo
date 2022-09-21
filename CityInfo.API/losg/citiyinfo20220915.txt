@@ -1,0 +1,41 @@
+2022-09-15 13:47:35.726 +03:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-09-15 13:47:35.940 +03:00 [DBG] Hosting starting
+2022-09-15 13:47:36.313 +03:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 20582C50A9E65107DDAB9C2FD0842D966F321971)
+2022-09-15 13:47:37.049 +03:00 [INF] Now listening on: https://localhost:7289
+2022-09-15 13:47:37.099 +03:00 [INF] Now listening on: http://localhost:5289
+2022-09-15 13:47:37.101 +03:00 [DBG] Loaded hosting startup assembly CityInfo.API
+2022-09-15 13:47:37.106 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-15 13:47:37.108 +03:00 [INF] Hosting environment: Production
+2022-09-15 13:47:37.109 +03:00 [INF] Content root path: C:\Users\zeynels\OneDrive - Provision\Desktop\RiderProjects\CityInfo\CityInfo.API\
+2022-09-15 13:47:37.113 +03:00 [DBG] Hosting started
+2022-09-15 13:47:37.605 +03:00 [DBG] Connection id "0HMKN0UQ8OCUS" accepted.
+2022-09-15 13:47:37.674 +03:00 [DBG] Connection id "0HMKN0UQ8OCUS" started.
+2022-09-15 13:47:37.674 +03:00 [DBG] Connection id "0HMKN0UQ8OCUT" accepted.
+2022-09-15 13:47:37.680 +03:00 [DBG] Connection id "0HMKN0UQ8OCUU" accepted.
+2022-09-15 13:47:37.681 +03:00 [DBG] Connection id "0HMKN0UQ8OCUT" started.
+2022-09-15 13:47:37.682 +03:00 [DBG] Connection id "0HMKN0UQ8OCUU" started.
+2022-09-15 13:47:37.762 +03:00 [DBG] Connection id "0HMKN0UQ8OCUT" received FIN.
+2022-09-15 13:47:37.775 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-09-15 13:47:37.787 +03:00 [DBG] Connection 0HMKN0UQ8OCUS established using the following protocol: "Tls12"
+2022-09-15 13:47:37.787 +03:00 [DBG] Connection 0HMKN0UQ8OCUU established using the following protocol: "Tls12"
+2022-09-15 13:47:37.789 +03:00 [DBG] Connection id "0HMKN0UQ8OCUU" reset.
+2022-09-15 13:47:37.848 +03:00 [DBG] Connection id "0HMKN0UQ8OCUT" stopped.
+2022-09-15 13:47:37.850 +03:00 [DBG] Connection id "0HMKN0UQ8OCUT" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-09-15 13:47:37.871 +03:00 [DBG] Connection id "0HMKN0UQ8OCUU" is closed. The last processed stream ID was 0.
+2022-09-15 13:47:37.877 +03:00 [DBG] Connection id "0HMKN0UQ8OCUU" sending FIN because: "The client closed the connection."
+2022-09-15 13:47:37.880 +03:00 [DBG] Connection id "0HMKN0UQ8OCUU" stopped.
+2022-09-15 13:47:37.973 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7289/swagger - -
+2022-09-15 13:47:37.982 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2022-09-15 13:47:38.047 +03:00 [DBG] No candidates found for the request path '/swagger'
+2022-09-15 13:47:38.056 +03:00 [DBG] Request did not match any endpoints
+2022-09-15 13:47:38.089 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7289/swagger - - - 404 0 - 123.6289ms
+2022-09-15 13:49:50.089 +03:00 [DBG] Connection id "0HMKN0UQ8OCUS" is closing.
+2022-09-15 13:49:50.093 +03:00 [DBG] Connection id "0HMKN0UQ8OCUS" is closed. The last processed stream ID was 1.
+2022-09-15 13:49:50.096 +03:00 [DBG] Connection id "0HMKN0UQ8OCUS" received FIN.
+2022-09-15 13:49:50.098 +03:00 [DBG] Connection id "0HMKN0UQ8OCUS" sending FIN because: "The client closed the connection."
+2022-09-15 13:49:50.101 +03:00 [DBG] Connection id "0HMKN0UQ8OCUS" stopped.
