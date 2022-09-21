@@ -1,10 +1,11 @@
 using CityInfo.API;
 using CityInfo.API.DbContexts;
+using CityInfo.API.Services;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
-Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.Console().WriteTo.File("losg/citiyinfo.txt", rollingInterval: RollingInterval.Day).CreateLogger();
+Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.Console().WriteTo.File("logs/CitiyInfo-.txt", rollingInterval: RollingInterval.Day).CreateLogger();
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog();  
 // builder.Logging.ClearProviders();
@@ -26,7 +27,7 @@ builder.Services.AddControllers(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<FileExtensionContentTypeProvider>();
-
+builder.Services.AddTransient<LocalMailService>(); 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -38,7 +39,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 // app.UseRouting();
-app.UseAuthorization();
+app.UseAuthorization(); 
 app.MapControllers();
 
 // app.Run(async (context)=>
