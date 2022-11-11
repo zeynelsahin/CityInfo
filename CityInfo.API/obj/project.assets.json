@@ -2236,11 +2236,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\zeynels\\OneDrive - Provision\\Desktop\\RiderProjects\\CityInfo\\CityInfo.API\\CityInfo.API.csproj",
+      "projectUniqueName": "C:\\Users\\zeynels\\Desktop\\Rider Projects\\New folder\\CityInfo.API\\CityInfo.API.csproj",
       "projectName": "CityInfo.API",
-      "projectPath": "C:\\Users\\zeynels\\OneDrive - Provision\\Desktop\\RiderProjects\\CityInfo\\CityInfo.API\\CityInfo.API.csproj",
+      "projectPath": "C:\\Users\\zeynels\\Desktop\\Rider Projects\\New folder\\CityInfo.API\\CityInfo.API.csproj",
       "packagesPath": "C:\\Users\\zeynels\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\zeynels\\OneDrive - Provision\\Desktop\\RiderProjects\\CityInfo\\CityInfo.API\\obj\\",
+      "outputPath": "C:\\Users\\zeynels\\Desktop\\Rider Projects\\New folder\\CityInfo.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\zeynels\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2251,8 +2251,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://192.168.0.25:8081/repository/nuget-hosted/": {},
-        "http://jenkins:8085/repository/nuget-hosted/": {},
+        "http://192.168.0.25:8081/repository/nuget-hosted": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2320,7 +2319,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -2332,7 +2332,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -2341,13 +2341,7 @@
       "code": "NU1803",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://jenkins:8085/repository/nuget-hosted/'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
-    },
-    {
-      "code": "NU1803",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://192.168.0.25:8081/repository/nuget-hosted/'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://192.168.0.25:8081/repository/nuget-hosted'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
     }
   ]
 }

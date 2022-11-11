@@ -16,6 +16,7 @@ builder.Services.AddSingleton<CitiesDataStore>();
 
 builder.Services.AddDbContext<CityInfoContext>(optionsBuilder => optionsBuilder.UseSqlite(builder.Configuration["ConnectionStrings:CityInfoConnectionString"]));
 
+builder.Services.AddScoped<ICityInfoRepository, CityInfoRepository>();
 // builder.Services.AddMvc(); MVC hizmetleri
 // builder.Services.AddControllersWithViews();// Controllerları viewler ile birlikte kulllanma
 builder.Services.AddControllers(options => { options.ReturnHttpNotAcceptable = true; }).AddNewtonsoftJson()
@@ -34,10 +35,11 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    
 }
-
 app.UseSwagger();
 app.UseSwaggerUI();
+
 app.UseHttpsRedirection();
 // app.UseRouting();
 app.UseAuthorization();
