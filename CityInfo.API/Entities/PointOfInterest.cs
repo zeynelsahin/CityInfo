@@ -10,6 +10,7 @@ public class PointOfInterest
     [ForeignKey("CityId")]
     public City? City { get; set; }
     public int CityId { get; set; }
+    
     public PointOfInterest(string name)
     {
         Name = name;

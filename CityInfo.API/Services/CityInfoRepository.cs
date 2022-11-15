@@ -15,8 +15,8 @@ public class CityInfoRepository : ICityInfoRepository
 
     public async Task<IEnumerable<City>> GetCitiesAsync()
     {
-        var denme=await  _context.Cities.ToListAsync();
-        return denme;
+        var result=await  _context.Cities.ToListAsync();
+        return result;
     }
 
     public async Task<City?> GetCityAsync(int cityId, bool includePointsOfInterest)
@@ -29,6 +29,10 @@ public class CityInfoRepository : ICityInfoRepository
         return await _context.Cities.Where(d => d.Id == cityId).FirstOrDefaultAsync();
     }
 
+    public async Task<bool> CityExistsAsync(int cityId)
+    {
+        return await _context.Cities.AnyAsync(c => c.Id == cityId);
+    }
     public async Task<IEnumerable<PointOfInterest>> GetPointOfInterestForCityAsync(int cityId)
     {
         return await _context.PointsOfInterest.Where(p => p.CityId == cityId).ToListAsync();
@@ -37,5 +41,21 @@ public class CityInfoRepository : ICityInfoRepository
     public async Task<PointOfInterest?> GetPointOfInterestForCityAsync(int cityId, int pointOfInterestId)
     {
         return await _context.PointsOfInterest.Where(p => p.CityId == cityId && p.Id == pointOfInterestId).FirstOrDefaultAsync();
+    }
+
+    public async Task AddPointOfInterestForCityAsync(int cityId, PointOfInterest pointOfInterest)
+    {
+        var city = await GetCityAsync(cityId, false);
+        city?.PointsOfInterest.Add(pointOfInterest);
+    }
+
+    public void DeletePointOfInterest(PointOfInterest pointOfInterest)
+    {
+        _context.PointsOfInterest.Remove(pointOfInterest);
+    }
+
+    public async Task<bool> SaveChangesAsync()
+    {
+        return await _context.SaveChangesAsync() >= 0;
     }
 }

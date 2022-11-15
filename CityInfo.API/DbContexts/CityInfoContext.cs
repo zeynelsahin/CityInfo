@@ -11,8 +11,8 @@ public class CityInfoContext : DbContext
     {
     }
 
-    public DbSet<City> Cities { get; set; }
-    public DbSet<PointOfInterest> PointsOfInterest { get; set; }
+    public DbSet<City> Cities { get; set; } = null!;
+    public DbSet<PointOfInterest> PointsOfInterest { get; set; } = null!;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -26,7 +26,7 @@ public class CityInfoContext : DbContext
         modelBuilder.Entity<City>().Property(p => p.Id).ValueGeneratedOnAdd();
         modelBuilder.Entity<PointOfInterest>().HasKey(c => c.Id);
         modelBuilder.Entity<PointOfInterest>().Property(p => p.Id).ValueGeneratedOnAdd();
-        
+
         modelBuilder.Entity<City>().HasData(
             new City("Trabzon") { Id = 1, Description = "Random string " },
             new City("Hatay") { Id = 2, Description = "Random string " },

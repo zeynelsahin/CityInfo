@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "QwoIWBvJLsSEJSOtq5D7exJJnQMv2E7InIAN+buYTsA2/DZ2LoSjuHjgbXMpHKX027M3Kf6j1oT5iKOIu4YX2Q==",
+  "dgSpecHash": "2UC14kdETRAUj3VQfxjBijy0M6JR1K7BteVij7m+GJ2pw+eePngGkX65mu57mJfFK/6ZX8zr+/DuHrrdTdu6LQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\zeynels\\Desktop\\Rider Projects\\New folder\\CityInfo.API\\CityInfo.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\zeynels\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\zeynels\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\zeynels\\.nuget\\packages\\bogus\\34.0.2\\bogus.34.0.2.nupkg.sha512",
     "C:\\Users\\zeynels\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\zeynels\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\6.0.7\\microsoft.aspnetcore.jsonpatch.6.0.7.nupkg.sha512",

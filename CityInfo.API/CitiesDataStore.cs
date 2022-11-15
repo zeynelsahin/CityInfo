@@ -18,7 +18,7 @@ public class CitiesDataStore
             var random = new Random().Next(1, 6);
             var cities = new Faker<CityDto>("tr").RuleFor(dto => dto.Id, i + 1).RuleFor(dto => dto.Name, faker => faker.Address.City())
                 .RuleFor(dto => dto.Description, faker => faker.Address.StreetAddress())
-                .RuleFor(dto => dto.PointsInterest, CreatePointsInterest(random)).Generate();
+                .RuleFor(dto => dto.PointsOfInterest, CreatePointsInterest(random)).Generate();
             i++;
             list.Add(cities);
         }
