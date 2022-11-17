@@ -22,12 +22,12 @@ public class CitiesController : Controller
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<CityWithoutPointsOfInterestDto>>> GetCities()
+    public async Task<ActionResult<IEnumerable<CityWithoutPointsOfInterestDto>>> GetCities([FromQuery(Name = "filteronname")]string? name,string? searchQuery)
     {
-        var cities = await _cityInfoRepository.GetCitiesAsync();
-        // var result = _citiesDataStore.Cities;
-        // var result = cities.Select(city => new CityWithoutPointsOfInterestDto() { Id = city.Id, Description = city.Description, Name = city.Name }).ToList();
+        var cities = await _cityInfoRepository.GetCitiesAsync(name,searchQuery);
+        
         var result = _mapper.Map<IEnumerable<CityWithoutPointsOfInterestDto>>(cities);
+        
         return Json(result); //Encoding gerekli değil :Newtonsoft 
         // return Json(result,new JsonSerializerOptions(){WriteIndented = true,Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping});
     }
