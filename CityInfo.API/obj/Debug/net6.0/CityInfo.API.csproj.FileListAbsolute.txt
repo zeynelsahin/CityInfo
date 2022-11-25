@@ -138,3 +138,8 @@ C:\Users\zeynels\Desktop\Rider Projects\New folder\CityInfo.API\obj\Debug\net6.0
 C:\Users\zeynels\Desktop\Rider Projects\New folder\CityInfo.API\obj\Debug\net6.0\ref\CityInfo.API.dll
 C:\Users\zeynels\Desktop\Rider Projects\New folder\CityInfo.API\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\zeynels\Desktop\Rider Projects\New folder\CityInfo.API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\zeynels\Desktop\Rider Projects\New folder\CityInfo.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\zeynels\Desktop\Rider Projects\New folder\CityInfo.API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\zeynels\Desktop\Rider Projects\New folder\CityInfo.API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\zeynels\Desktop\Rider Projects\New folder\CityInfo.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\zeynels\Desktop\Rider Projects\New folder\CityInfo.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
