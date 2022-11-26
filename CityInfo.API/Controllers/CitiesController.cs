@@ -27,23 +27,36 @@ public class CitiesController : Controller
         _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
+ 
     [HttpGet]
     public async Task<ActionResult<IEnumerable<CityWithoutPointsOfInterestDto>>> GetCities([FromQuery(Name = "filteronname")] string? name, string? searchQuery, int pageNumber = 1, int pageSize = 10)
     {
         if (pageSize > maxCitiesPageSize)
-        {
+        { 
             pageSize = maxCitiesPageSize;
         }
-        
-        var (cities,paginationMetaData) = await _cityInfoRepository.GetCitiesAsync(name, searchQuery,pageNumber,pageSize);
-        Response.Headers.Add("X-Pagination",JsonSerializer.Serialize(paginationMetaData));
+
+        var (cities, paginationMetaData) = await _cityInfoRepository.GetCitiesAsync(name, searchQuery, pageNumber, pageSize);
+        Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(paginationMetaData));
         var result = _mapper.Map<IEnumerable<CityWithoutPointsOfInterestDto>>(cities);
 
         return Json(result); //Encoding gerekli değil :Newtonsoft 
         // return Json(result,new JsonSerializerOptions(){WriteIndented = true,Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping});
     }
 
+ 
+    /// <summary>
+    /// Get a city by id
+    /// </summary>
+    /// <param name="id">The id of the city to get</param>
+    /// <param name="includePointOfInterest">Wheter or not to include the points of interest</param>
+    /// <returns>An IActionResult</returns>
+    /// <response code="200">Return the requested city</response>
     [HttpGet("getById/{id:int}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    
     public async Task<IActionResult> GetCity(int id, bool includePointOfInterest = false) //Response headers a artı olarak content-legnt ekliyor
     {
         // var city = _citiesDataStore.Cities.FirstOrDefault(dto => dto.Id == id);
