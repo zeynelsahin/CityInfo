@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Serilog;
 
 Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.Console().WriteTo.File("logs/CitiyInfo-.txt", rollingInterval: RollingInterval.Day).CreateLogger();
@@ -35,7 +36,27 @@ builder.Services.AddSwaggerGen(options =>
 {
     var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
-    options.IncludeXmlComments(xmlCommentsFullPath);// Xml documentation for swagger Xml yorum satılarını okur 
+    options.IncludeXmlComments(xmlCommentsFullPath); // Xml documentation for swagger Xml yorum satılarını okur 
+    options.AddSecurityDefinition("CityInfoApiBearerAuth", new OpenApiSecurityScheme()
+    {
+        Type = SecuritySchemeType.Http,
+        Scheme = "Bearer",
+        Description = "Input a valid token to access thi API"
+    });
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement()
+    {
+        {
+            new OpenApiSecurityScheme()
+            {
+                Reference = new OpenApiReference()
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "CityInfoApiBearerAuth"
+                }
+            },
+            new List<string>()
+        }
+    }); 
 });
 
 
@@ -50,7 +71,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
 {
-    options.TokenValidationParameters = new ()
+    options.TokenValidationParameters = new()
     {
         ValidateIssuer = true,
         ValidateAudience = true,
@@ -66,7 +87,6 @@ builder.Services.AddAuthorization(options =>
     {
         policy.RequireAuthenticatedUser();
         policy.RequireClaim("city", "İstanbul");
-        
     });
 });
 builder.Services.AddApiVersioning(options =>
@@ -74,7 +94,7 @@ builder.Services.AddApiVersioning(options =>
     options.AssumeDefaultVersionWhenUnspecified = true;
     options.DefaultApiVersion = new ApiVersion(1, 0);
     options.ReportApiVersions = true;
-} );
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -92,10 +112,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 // app.MapControllers();
 
-app.UseEndpoints(endpoint =>
-{
-    endpoint.MapControllers();
-});
+app.UseEndpoints(endpoint => { endpoint.MapControllers(); });
 // app.Run(async (context)=>
 // {
 //     await context.Response.WriteAsync("Zeynel");
