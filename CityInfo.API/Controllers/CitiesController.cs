@@ -3,6 +3,7 @@ using System.Text.Json;
 using AutoMapper;
 using CityInfo.API.Models;
 using CityInfo.API.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
@@ -10,6 +11,7 @@ using JsonSerializer = System.Text.Json.JsonSerializer;
 namespace CityInfo.API.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("api/cities")]
 public class CitiesController : Controller
 {

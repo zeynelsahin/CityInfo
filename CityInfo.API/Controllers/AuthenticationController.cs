@@ -65,6 +65,6 @@ public class AuthenticationController : Controller
     private CityInfoUser ValidateUserCredentials(string? 
         userName, string? password)
     {
-        return new CityInfoUser(1,userName??"","Kevin","Dockx","Istanbul");
+        return new CityInfoUser(1,userName??"","Kevin","Dockx","İstanbul");
     }
 }
