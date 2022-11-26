@@ -50,6 +50,15 @@ builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["Authentication:SecretForKey"]))
     };
 });
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("MustBeFromIstanbul", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.RequireClaim("city", "İstanbul");
+        
+    });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
