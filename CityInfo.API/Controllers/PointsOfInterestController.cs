@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 namespace CityInfo.API.Controllers;
 
 [ApiController]
-[Authorize(policy:"MustBeFromIstanbul")]
+// [Authorize(policy:"MustBeFromIstanbul")]
 [Route("api/cities/{cityId}/pointsofinterest")]
 public class PointsOfInterestController : Controller
 {

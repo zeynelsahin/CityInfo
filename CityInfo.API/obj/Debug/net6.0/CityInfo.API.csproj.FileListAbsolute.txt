@@ -146,3 +146,4 @@ C:\Users\zeynels\Desktop\Rider Projects\New folder\CityInfo.API\bin\Debug\net6.0
 C:\Users\zeynels\Desktop\Rider Projects\New folder\CityInfo.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\zeynels\Desktop\Rider Projects\New folder\CityInfo.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\zeynels\Desktop\Rider Projects\New folder\CityInfo.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\zeynels\Desktop\Rider Projects\New folder\CityInfo.API\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Versioning.dll
